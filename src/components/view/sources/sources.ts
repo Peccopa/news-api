@@ -8,15 +8,14 @@ class Sources {
 
         const selectElement = <T extends HTMLElement>(parent: HTMLElement, selector: string): T => {
             const element = parent.querySelector<T>(selector);
-            if (!element) throw new Error();
+            if (!element) throw new Error('');
             return element;
         };
 
         data.forEach((item) => {
             const sourceClone = sourceItemTemp?.content.cloneNode(true) as HTMLElement;
-
-            selectElement<HTMLTemplateElement>(sourceItemTemp, '.source__item-name').textContent = item.name;
-            selectElement<HTMLTemplateElement>(sourceItemTemp, '.source__item').setAttribute('data-source-id', item.id);
+            selectElement<HTMLTemplateElement>(sourceClone, '.source__item-name').textContent = item.name;
+            selectElement<HTMLTemplateElement>(sourceClone, '.source__item').setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
         });

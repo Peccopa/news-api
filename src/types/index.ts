@@ -13,6 +13,11 @@ export interface NewsData {
 }
 
 export interface SourcesData {
+    category: string;
+    country: string;
+    description: string;
     id: string;
     name: string;
+    url: string;
+    language: string;
 }
