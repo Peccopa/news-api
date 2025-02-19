@@ -1,4 +1,4 @@
-export interface Source {
+export interface NewsData {
     source: {
         id: string;
         name: string;
@@ -10,4 +10,9 @@ export interface Source {
     urlToImage: string;
     publishedAt: string;
     content: string;
+}
+
+export interface SourcesData {
+    id: string;
+    name: string;
 }
