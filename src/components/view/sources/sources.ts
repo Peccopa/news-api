@@ -1,8 +1,17 @@
-import { SourcesData } from '../../../types/index';
 import './sources.css';
 
-class Sources {
-    draw(data: SourcesData[]) {
+export interface Source {
+    category: string;
+    country: string;
+    description: string;
+    id: string;
+    name: string;
+    url: string;
+    language: string;
+}
+
+export class Sources {
+    draw(data: Source[]) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
@@ -23,5 +32,3 @@ class Sources {
         document.querySelector('.sources')?.append(fragment);
     }
 }
-
-export default Sources;

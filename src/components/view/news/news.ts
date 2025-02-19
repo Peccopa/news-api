@@ -1,8 +1,23 @@
-import { NewsData } from '../../../types/index';
 import './news.css';
 
-class News {
-    draw(data: NewsData[]) {
+export interface Article {
+    source: Pick<Source, 'id' | 'name'>;
+    author: string;
+    content: string;
+    description: string;
+    publishedAt: string;
+    title: string;
+    url: string;
+    urlToImage: string;
+}
+
+export type Source = {
+    id: string;
+    name: string;
+};
+
+export class News {
+    draw(data: Article[]) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
@@ -42,5 +57,3 @@ class News {
         }
     }
 }
-
-export default News;
