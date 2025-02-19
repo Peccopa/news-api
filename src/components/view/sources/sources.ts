@@ -1,0 +1,28 @@
+import { SourcesData } from '../../../types/index';
+import './sources.css';
+
+class Sources {
+    draw(data: SourcesData[]) {
+        const fragment = document.createDocumentFragment();
+        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
+
+        const selectElement = <T extends HTMLElement>(parent: HTMLElement, selector: string): T => {
+            const element = parent.querySelector<T>(selector);
+            if (!element) throw new Error();
+            return element;
+        };
+
+        data.forEach((item) => {
+            const sourceClone = sourceItemTemp?.content.cloneNode(true) as HTMLElement;
+
+            selectElement<HTMLTemplateElement>(sourceItemTemp, '.source__item-name').textContent = item.name;
+            selectElement<HTMLTemplateElement>(sourceItemTemp, '.source__item').setAttribute('data-source-id', item.id);
+
+            fragment.append(sourceClone);
+        });
+
+        document.querySelector('.sources')?.append(fragment);
+    }
+}
+
+export default Sources;
