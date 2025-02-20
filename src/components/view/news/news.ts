@@ -11,7 +11,7 @@ export interface Article {
     urlToImage: string;
 }
 
-export type Source = {
+type Source = {
     id: string;
     name: string;
 };
