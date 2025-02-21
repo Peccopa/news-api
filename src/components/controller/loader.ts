@@ -1,7 +1,7 @@
 import { NewsData, SourceData } from '../view/appView';
 
+export type Callback<T> = (data?: T) => void;
 type Options<T> = Record<string, T>;
-type Callback<T> = (data?: T) => void;
 
 export class Loader {
     constructor(
@@ -18,7 +18,7 @@ export class Loader {
             options = {},
         }: {
             endpoint: string;
-            options: Options<string>;
+            options?: Options<string>;
         },
         callback = () => {
             console.error('No callback for GET response');
