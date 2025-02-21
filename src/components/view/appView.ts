@@ -31,5 +31,3 @@ export class AppView {
         this.sources.draw(values);
     }
 }
-
-export default AppView;
