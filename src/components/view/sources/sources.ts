@@ -22,7 +22,7 @@ export class Sources {
         };
 
         data.forEach((item) => {
-            const sourceClone = sourceItemTemp?.content.cloneNode(true) as HTMLElement;
+            const sourceClone: Readonly<HTMLElement> = sourceItemTemp?.content.cloneNode(true) as HTMLElement;
             selectElement<HTMLTemplateElement>(sourceClone, '.source__item-name').textContent = item.name;
             selectElement<HTMLTemplateElement>(sourceClone, '.source__item').setAttribute('data-source-id', item.id);
 
