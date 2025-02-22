@@ -2,6 +2,9 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 header {
@@ -14,11 +17,26 @@ header h1 {
 }
 
 footer {
-    height: 100px;
+    max-height: 32px;
     display: flex;
+    gap: 0.5em;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 0 0.5em;
 }
+
+svg {
+    height: 32px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    transition: all 0.3s ease-in-out;
+}
+
 footer .copyright {
     font-size: 14px;
     color: #333;
@@ -32,4 +50,8 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+footer a:hover {
+    opacity: 0.75;
 }
