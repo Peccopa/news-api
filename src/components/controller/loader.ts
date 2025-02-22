@@ -2,6 +2,10 @@ import { NewsData, SourceData } from '../view/appView';
 
 export type Callback<T> = (data?: T) => void;
 type Options<T> = Record<string, T>;
+enum Status {
+    Unauthorized = 401,
+    NotFound = 404,
+}
 
 export class Loader {
     constructor(
@@ -29,7 +33,7 @@ export class Loader {
 
     errorHandler(res: Response) {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === Status.Unauthorized || res.status === Status.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
