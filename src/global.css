@@ -14,6 +14,13 @@ header {
     gap: 1em;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .globe {
     width: 52px;
     height: 52px;
@@ -40,6 +47,8 @@ footer {
     align-items: center;
     justify-content: space-around;
     padding: 0 0.5em;
+
+    margin-top: 30px;
 }
 
 svg {
