@@ -13,8 +13,10 @@ class App {
     }
 
     start() {
-        const element = document.querySelector('.sources') as HTMLElement;
-        element.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
+        const element = document.querySelector('.sources');
+        if (element instanceof HTMLElement) {
+          element.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
+        }
         this.controller.getSources((data) => this.view.drawSources(data));
     }
 }
