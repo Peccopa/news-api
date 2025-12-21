@@ -7,6 +7,11 @@ enum Status {
     NotFound = 404,
 }
 
+interface ResponseData {
+    endpoint: string;
+    options?: Options<string>;
+}
+
 export class Loader {
     constructor(
         readonly baseLink: string,
@@ -17,13 +22,7 @@ export class Loader {
     }
 
     getResp(
-        {
-            endpoint,
-            options = {},
-        }: {
-            endpoint: string;
-            options?: Options<string>;
-        },
+        { endpoint, options = {} }: ResponseData,
         callback = () => {
             console.error('No callback for GET response');
         }
