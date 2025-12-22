@@ -1,16 +1,6 @@
-import { Article, News } from './news/news';
-import { Source, Sources } from './sources/sources';
-
-export interface NewsData {
-    articles: Array<Article>;
-    totalResults: number;
-    status: string;
-}
-
-export interface SourceData {
-    sources: Array<Source>;
-    status: string;
-}
+import { NewsData, SourceData } from '../../types/types';
+import { News } from './news/news';
+import { Sources } from './sources/sources';
 
 export class AppView {
     constructor(

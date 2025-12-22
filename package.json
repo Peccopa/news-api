@@ -1,5 +1,5 @@
 {
-    "name": "NewsJS",
+    "name": "news-api",
     "version": "1.0.0",
     "description": "",
     "main": "webpack.base.config.js",
@@ -17,6 +17,7 @@
     "license": "ISC",
     "homepage": "",
     "devDependencies": {
+        "@types/node": "^25.0.3",
         "@typescript-eslint/eslint-plugin": "^8.24.1",
         "@typescript-eslint/parser": "^8.24.1",
         "clean-webpack-plugin": "^4.0.0",

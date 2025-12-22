@@ -1,20 +1,5 @@
+import { Article } from '../../../types/types';
 import './news.css';
-
-export interface Article {
-    source: Pick<Source, 'id' | 'name'>;
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    title: string;
-    url: string;
-    urlToImage: string;
-}
-
-type Source = {
-    id: string;
-    name: string;
-};
 
 export class News {
     draw(data: Article[]) {

@@ -1,6 +1,5 @@
-import { NewsData, SourceData } from '../view/appView';
+import { Callback, NewsData, SourceData } from '../../types/types';
 import { AppLoader } from './appLoader';
-import { Callback } from './loader';
 
 enum Endpoints {
     SOURCES = 'sources',

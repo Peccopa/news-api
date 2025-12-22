@@ -1,7 +1,7 @@
-import { NewsData, SourceData } from '../view/appView';
+import { Callback, NewsData, SourceData } from '../../types/types';
 
-export type Callback<T> = (data?: T) => void;
 type Options<T> = Record<string, T>;
+
 enum Status {
     Unauthorized = 401,
     NotFound = 404,

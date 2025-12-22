@@ -1,14 +1,5 @@
+import { Source } from '../../../types/types';
 import './sources.css';
-
-export interface Source {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    name: string;
-    url: string;
-    language: string;
-}
 
 export class Sources {
     draw(data: Source[]): void {
