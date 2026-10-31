@@ -23,13 +23,8 @@ export class Loader {
         this.options = options;
     }
 
-    getResp(
-        { endpoint, options = {} }: ResponseData,
-        callback = () => {
-            console.error('No callback for GET response');
-        }
-    ) {
-        this.load('GET', endpoint, callback, options);
+    getResp<T>({ endpoint, options = {} }: ResponseData, callback: Callback<T>): void {
+        this.load<T>('GET', endpoint, callback, options);
     }
 
     errorHandler(res: Response) {

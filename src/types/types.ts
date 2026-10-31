@@ -1,4 +1,4 @@
-export type Callback<T> = (data?: T) => void;
+export type Callback<T> = (data: T) => void;
 
 export interface NewsData {
     articles: Array<Article>;
