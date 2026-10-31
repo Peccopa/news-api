@@ -1,4 +1,4 @@
-import { Callback, NewsData, SourceData } from '../../types/types';
+import { Callback } from '../../types/types';
 
 type Options<T> = Record<string, T>;
 
@@ -6,6 +6,8 @@ enum Status {
     Unauthorized = 401,
     NotFound = 404,
 }
+
+type HttpMethod = 'GET';
 
 interface ResponseData {
     endpoint: string;
@@ -51,11 +53,11 @@ export class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Callback<NewsData> | Callback<SourceData>, options = {}) {
+    load<T>(method: HttpMethod, endpoint: string, callback: Callback<T>, options: Options<string> = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((data: T) => callback(data))
+            .catch((err: unknown) => console.error(err));
     }
 }
