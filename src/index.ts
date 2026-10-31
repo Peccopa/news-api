@@ -10,13 +10,17 @@ app.start();
 
 // Slider
 
-const slider = document.querySelector('.slider') as HTMLElement;
-const sliderClip = document.querySelector('.slider__clip') as HTMLElement;
-const sliderBtns = document.querySelector('.slider__btns') as HTMLElement;
+const slider = document.querySelector('.slider');
+const sliderClip = document.querySelector('.slider__clip');
+const sliderBtns = document.querySelector('.slider__btns');
+
+if (!(slider instanceof HTMLElement) || !(sliderClip instanceof HTMLElement) || !(sliderBtns instanceof HTMLElement)) {
+    throw new Error('Slider elements not found');
+}
 
 sliderBtns.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    clickSlider(target);
+    if (!(e.target instanceof HTMLElement)) return;
+    clickSlider(e.target);
 });
 
 window.addEventListener('resize', () => {
@@ -27,10 +31,12 @@ const clickSlider = function (target: HTMLElement) {
     const position = sliderClip.style.left || '0px';
     const secWidth = parseFloat(getComputedStyle(slider).width);
     const clipWidth = sliderClip.offsetWidth;
+
     if (target.classList.contains('left')) {
         if (parseFloat(position) >= 0) return;
         sliderClip.style.left = String(parseFloat(position) + secWidth) + 'px';
     }
+
     if (target.classList.contains('right')) {
         const absPosition = Math.abs(parseFloat(position));
         if (absPosition >= clipWidth - secWidth * 1.5) return;
