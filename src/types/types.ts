@@ -22,17 +22,15 @@ export interface Source {
 }
 
 export interface Article {
-    source: Pick<SourceArticle, 'id' | 'name'>;
-    author: string;
-    content: string;
-    description: string;
+    source: {
+        id: string | null;
+        name: string;
+    };
+    author: string | null;
+    content: string | null;
+    description: string | null;
     publishedAt: string;
     title: string;
     url: string;
-    urlToImage: string;
+    urlToImage: string | null;
 }
-
-type SourceArticle = {
-    id: string;
-    name: string;
-};
