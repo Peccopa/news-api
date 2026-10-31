@@ -17,6 +17,8 @@ export class Sources {
         };
 
         data.forEach((item) => {
+            if (item.id === null) return;
+
             const sourceClone = sourceItemTemp.content.cloneNode(true);
 
             if (!(sourceClone instanceof DocumentFragment)) {

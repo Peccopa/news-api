@@ -15,7 +15,7 @@ export interface Source {
     category: string;
     country: string;
     description: string;
-    id: string;
+    id: string | null;
     name: string;
     url: string;
     language: string;
