@@ -17,12 +17,17 @@ export class AppController extends AppLoader {
     }
 
     getNews(e: MouseEvent, callback: Callback<NewsData>) {
-        let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
+        if (!(e.target instanceof HTMLElement) || !(e.currentTarget instanceof HTMLElement)) {
+            return;
+        }
 
-        while (target !== newsContainer) {
+        const newsContainer = e.currentTarget;
+        let target: HTMLElement | null = e.target;
+
+        while (target && target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id') || '';
+
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
@@ -35,9 +40,11 @@ export class AppController extends AppLoader {
                         callback
                     );
                 }
+
                 return;
             }
-            target = target.parentNode as HTMLElement;
+
+            target = target.parentElement;
         }
     }
 }
