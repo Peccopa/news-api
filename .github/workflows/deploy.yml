@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          API_URL: https://newsapi.org/v2/
+          API_URL: https://rss-news-api.onrender.com/
           API_KEY: ${{ secrets.API_KEY }}
 
       - name: Upload artifact
