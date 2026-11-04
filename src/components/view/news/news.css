@@ -1,8 +1,14 @@
+.news {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
 .news__item {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
-    margin-bottom: 1.6%;
     background: #fff;
     color: #333;
     line-height: 1.4;
@@ -90,7 +96,9 @@
     margin-left: -10px;
     opacity: 0;
     vertical-align: middle;
-    transition: margin 0.3s, opacity 0.3s;
+    transition:
+        margin 0.3s,
+        opacity 0.3s;
 }
 
 .news__item .news__description .news__read-more a:hover:after {
@@ -124,7 +132,7 @@
 @media (min-width: 640px) {
     .news__item {
         flex-direction: row;
-        max-width: 700px;
+        max-width: 710px;
     }
 
     .news__item .news__meta {
