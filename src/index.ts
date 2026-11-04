@@ -27,7 +27,7 @@ window.addEventListener('resize', () => {
     sliderClip.style.left = '0px';
 });
 
-const clickSlider = function (target: HTMLElement) {
+const clickSlider = function (target: HTMLElement): void {
     const position = sliderClip.style.left || '0px';
     const secWidth = parseFloat(getComputedStyle(slider).width);
     const clipWidth = sliderClip.offsetWidth;

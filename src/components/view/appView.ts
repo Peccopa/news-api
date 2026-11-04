@@ -3,7 +3,7 @@ import { News } from './news/news';
 import { Sources } from './sources/sources';
 
 export class AppView {
-    constructor(
+    public constructor(
         public news: News,
         public sources: Sources
     ) {
@@ -11,12 +11,12 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: NewsData | undefined) {
+    public drawNews(data: NewsData | undefined): void {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    drawSources(data: Partial<SourceData> | undefined) {
+    public drawSources(data: Partial<SourceData> | undefined): void {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }

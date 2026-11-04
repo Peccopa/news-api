@@ -7,7 +7,7 @@ enum Endpoints {
 }
 
 export class AppController extends AppLoader {
-    getSources(callback: Callback<SourceData>) {
+    public getSources(callback: Callback<SourceData>): void {
         super.getResp(
             {
                 endpoint: Endpoints.SOURCES,
@@ -16,7 +16,7 @@ export class AppController extends AppLoader {
         );
     }
 
-    getNews(e: MouseEvent, callback: Callback<NewsData>) {
+    public getNews(e: MouseEvent, callback: Callback<NewsData>): void {
         if (!(e.target instanceof HTMLElement) || !(e.currentTarget instanceof HTMLElement)) {
             return;
         }

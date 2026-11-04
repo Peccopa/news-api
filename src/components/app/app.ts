@@ -4,7 +4,7 @@ import { News } from '../view/news/news';
 import { Sources } from '../view/sources/sources';
 
 class App {
-    constructor(
+    public constructor(
         private controller: AppController,
         private view: AppView
     ) {
@@ -12,7 +12,7 @@ class App {
         this.view = new AppView(new News(), new Sources());
     }
 
-    start() {
+    public start(): void {
         const element = document.querySelector('.sources');
         if (element instanceof HTMLElement) {
             element.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));

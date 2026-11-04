@@ -15,19 +15,19 @@ interface ResponseData {
 }
 
 export class Loader {
-    constructor(
-        readonly baseLink: string,
-        readonly options: Options<string>
+    public constructor(
+        public readonly baseLink: string,
+        public readonly options: Options<string>
     ) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp<T>({ endpoint, options = {} }: ResponseData, callback: Callback<T>): void {
+    public getResp<T>({ endpoint, options = {} }: ResponseData, callback: Callback<T>): void {
         this.load<T>('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: Response) {
+    public errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === Status.Unauthorized || res.status === Status.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -37,7 +37,7 @@ export class Loader {
         return res;
     }
 
-    makeUrl(options: Options<string>, endpoint: string) {
+    public makeUrl(options: Options<string>, endpoint: string): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -48,7 +48,7 @@ export class Loader {
         return url.slice(0, -1);
     }
 
-    load<T>(method: HttpMethod, endpoint: string, callback: Callback<T>, options: Options<string> = {}): void {
+    public load<T>(method: HttpMethod, endpoint: string, callback: Callback<T>, options: Options<string> = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
